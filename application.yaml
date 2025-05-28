@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: simple-bank-argo
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/abhishekverma108/manifest_k8s.git
+    targetRevision: master
+    path: simple_bank
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: bank
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true
