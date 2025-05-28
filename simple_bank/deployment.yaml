@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: simple-bank-container
-        image: registry.digitalocean.com/foodcage-reg-1/simple_bank
+        image: registry.digitalocean.com/foodcage-reg-1/simple_bank:f59c50d
         ports:
         - containerPort: 8080
           name: http-server
